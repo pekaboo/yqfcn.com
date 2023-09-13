@@ -19,7 +19,7 @@ docker run \
 -e TZ=Asia/Shanghai \
 -e SPRING_PROFILES_ACTIVE=prod \
 -e SPRING_OUTPUT_ANSI_ENABLED=NEVER \
--p 7089:3000 \
+-p 8084:80 \
 ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 
 docker ps -l --no-trunc
