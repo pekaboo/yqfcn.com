@@ -8,7 +8,7 @@ docker ps -a
 docker image rm -f ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 # docker pull ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 docker build -t ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG} .
-docker container rm -f ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
+docker container rm -f ${APP_NAME}:${APP_TAG}
 
 docker run \
 -it -d \
@@ -20,6 +20,6 @@ docker run \
 -e SPRING_PROFILES_ACTIVE=prod \
 -e SPRING_OUTPUT_ANSI_ENABLED=NEVER \
 -p 8084:8080 \
-${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
+${APP_NAME}:${APP_TAG}
 
 docker ps -l --no-trunc
