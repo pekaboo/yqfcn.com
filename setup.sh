@@ -8,7 +8,7 @@ docker ps -a
 docker image rm -f ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 # docker pull ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 docker build -t ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG} .
-docker container rm -f ${APP_NAME}
+docker container rm -f ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 
 docker run \
 -it -d \
