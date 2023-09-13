@@ -1,5 +1,5 @@
 # git clone https://github.com/pekaboo/yqfcn.com.git
-APP_NAME=html01
+APP_NAME=html
 APP_TAG=latest
 # HARBOR_PREFIX=harbor.j-net.cn/jnet-mall
 HARBOR_PREFIX=yqfcn
