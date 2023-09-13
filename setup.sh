@@ -8,18 +8,18 @@ docker ps -a
 docker image rm -f ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 # docker pull ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 docker build -t ${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG} .
-docker container rm -f ${APP_NAME}:${APP_TAG}
+docker container rm -f ${APP_NAME}
 
 docker run \
 -it -d \
 --restart=always \
---name jnet-mall-${APP_NAME} \
+--name ${APP_NAME} \
 --log-opt max-size=10m \
 --log-opt max-file=5 \
 -e TZ=Asia/Shanghai \
 -e SPRING_PROFILES_ACTIVE=prod \
 -e SPRING_OUTPUT_ANSI_ENABLED=NEVER \
 -p 8084:8080 \
-${APP_NAME}:${APP_TAG}
+${HARBOR_PREFIX}/${APP_NAME}:${APP_TAG}
 
 docker ps -l --no-trunc
